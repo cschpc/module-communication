@@ -1,0 +1,10 @@
+pipeline:
+  - module1.py
+  - module3.py
+  - module2.py
+
+module2.py:
+  - host: 'some.host.org'
+module3.py:
+  - launcher: 'mpiexec -n 4 '
+  - env: 'OMP_NUM_THREADS=4'
