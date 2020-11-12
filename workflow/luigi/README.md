@@ -31,11 +31,11 @@ Pipeline branches and joins:
 ```
          Task1
         /     \
-	   /       \
-	Task2     Task3
-	   \       /
-	    \     /
-		 Task4
+       /       \
+     Task2     Task3
+       \       /
+        \     /
+         Task4
 ```
 
 Note! At the moment cleaning of intermediate files does not work with
