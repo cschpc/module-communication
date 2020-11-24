@@ -1,0 +1,17 @@
+BootStrap: docker
+From:ubuntu:20.04
+
+%setup
+	cp generate_diag.py generate_random.py qr.py $SINGULARITY_ROOTFS/usr/local/bin
+	cp first_half.py second_half.py diagonalize.py check_results.py $SINGULARITY_ROOTFS/usr/local/bin
+
+	chmod a+x $SINGULARITY_ROOTFS/usr/local/bin/*.py
+
+%post
+        apt-get update && apt-get install -y python3-pip
+	DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
+	apt-get install -y ssh
+	pip3 install paramiko prefect "dask[distributed]" bokeh
+
+%environment
+        export PATH=$PATH:/bin
