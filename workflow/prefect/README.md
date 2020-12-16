@@ -31,6 +31,15 @@ It is also possible to provide a name and resources for the worker:
 dask-worker tcp://somehost:someport --name MyName --resources "GPU=4"
 ```
 
+Scheduler and workers can be started also with the singularity container:
+```
+singularity exec prefect.simg dask-scheduler
+```
+```
+singularity exec -B $PWD:$PWD prefect.simg dask-worker tcp://somehost:someport
+```
+(The `-B` bind flag is needed only when running outside home directory)
+
 ## Prefect
 
 Flow can be executed either locally or in the Dask cluster. In order to use
