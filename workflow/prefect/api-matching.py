@@ -9,8 +9,8 @@ class myFlow(Flow):
     def __exit__(self, _type, _value, _tb):
         super().__exit__(_type, _value, _tb)
         # Check API matching
-        for task in flow:
-            upstream = flow.upstream_tasks(task)
+        for task in self:
+            upstream = self.upstream_tasks(task)
             if upstream:
                 # How to deal with multiple upstream tasks ?
                 upstream = upstream.pop()
